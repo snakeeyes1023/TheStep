@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Ressources/Assets/Plateforme/TileSetMap.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/plateforme/plateformeGlobal.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1048.42, 36.7578 )
+
+[node name="Plateforme" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 1029.8, -19.3538 )
+shape = SubResource( 1 )
+
+[node name="Texture" type="TileMap" parent="."]
+position = Vector2( 0, 5.61231 )
+z_index = -1
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 4, 0, -65516, 4, 0, -65515, 4, 0, -65514, 4, 0, -65513, 4, 0, -65512, 4, 0, -65511, 4, 0, -65510, 4, 0, -65509, 4, 0, -65508, 4, 0, -65507, 4, 0 )

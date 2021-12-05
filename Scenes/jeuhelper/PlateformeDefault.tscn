@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/plateforme/plateformeBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/plateforme/plateformeDepart.tscn" type="PackedScene" id=2]
+
+[node name="PlateformeBase" type="Node2D"]
+
+[node name="Plateforme" parent="." instance=ExtResource( 1 )]
+position = Vector2( 163.606, -34.1418 )
+
+[node name="Plateforme3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 661.417, 321.98 )
+
+[node name="Plateforme2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 409.903, 130.633 )
+
+[node name="Plateforme4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 583.031, -228.934 )
+
+[node name="Plateforme5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -18.488, 439.522 )
+z_index = 2

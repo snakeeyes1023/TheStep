@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/ennemie/ennemie.gd" type="Script" id=1]
+[ext_resource path="res://Ressources/Assets/ennemie/tile001.png" type="Texture" id=2]
+[ext_resource path="res://Ressources/Assets/ennemie/tile000.png" type="Texture" id=3]
+[ext_resource path="res://Ressources/Assets/ennemie/tile003.png" type="Texture" id=4]
+[ext_resource path="res://Ressources/Assets/ennemie/tile005.png" type="Texture" id=5]
+[ext_resource path="res://Ressources/Assets/ennemie/tile004.png" type="Texture" id=6]
+[ext_resource path="res://Ressources/Assets/ennemie/tile002.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 19.0653, 15.4054 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 22.2794, 12.9637 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "mouvement",
+"speed": 5.0
+} ]
+
+[node name="Ennemie" type="KinematicBody2D"]
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 1 )
+vitesse = 20
+
+[node name="CollisionPlateforme" type="CollisionShape2D" parent="."]
+position = Vector2( 0.396851, 6.42898 )
+shape = SubResource( 4 )
+
+[node name="DetectionJoueur" type="Area2D" parent="."]
+position = Vector2( -7.54016, 3.1748 )
+collision_mask = 4
+
+[node name="PorterAttaque" type="CollisionShape2D" parent="DetectionJoueur"]
+position = Vector2( 8.88089, 5.0948 )
+shape = SubResource( 2 )
+
+[node name="Animation" type="AnimatedSprite" parent="."]
+position = Vector2( 6.171, -15.5623 )
+scale = Vector2( 2.36123, 2.29897 )
+frames = SubResource( 3 )
+animation = "mouvement"
+frame = 3
+playing = true
+
+[node name="VideDroite" type="RayCast2D" parent="."]
+position = Vector2( 14.6835, 15.0803 )
+rotation = -0.729548
+scale = Vector2( 1, 0.4 )
+enabled = true
+
+[node name="VideGauche" type="RayCast2D" parent="."]
+position = Vector2( -13.0961, 15.4772 )
+rotation = 0.561996
+scale = Vector2( 1, 0.4 )
+enabled = true
+
+[connection signal="body_shape_entered" from="DetectionJoueur" to="." method="_signal_ennemie_detecte"]

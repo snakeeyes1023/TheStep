@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Ressources/Assets/Plateforme/TileSetMap.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/plateforme/plateformeGlobal.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 202.842, 32.5568 )
+
+[node name="Plateforme" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+chance_contenir_ennemie = 20
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.807785, 40.7692 )
+shape = SubResource( 1 )
+
+[node name="Texture" type="TileMap" parent="."]
+position = Vector2( 0, 5.61231 )
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0 )
+
+[node name="EnnemieSpawner" type="Position2D" parent="."]
+position = Vector2( -4.43671, -42.5735 )
