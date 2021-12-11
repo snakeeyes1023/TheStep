@@ -14,7 +14,7 @@ func monter_lave():
 # lorsque la lave touche le joueur la parti recommence
 func _Lave_touche_joueur(body_id, body, body_shape, local_shape):
 	if body.name == "Personnage":
-		InfoGlobal.niveau_en_cours = 0
+		InfoGlobal.niveau_en_cours = 1
 		for i in range(0, get_child_count()):
 			get_child(i).queue_free()
 		get_tree().reload_current_scene()
